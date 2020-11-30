@@ -94,6 +94,13 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_c,      quit,           {0} },
+	{ MODKEY|ShiftMask,             XK_l,      spawn,          SHCMD("source /home/patrick/.scripts/env/bin/activate && python /home/patrick/.scripts/library.py") },
+	{ MODKEY|ShiftMask,             XK_r,      spawn,          SHCMD("source /home/patrick/.scripts/env/bin/activate && python /home/patrick/.scripts/dreboot.py") },
+	{ MODKEY|ShiftMask,             XK_x,      spawn,          SHCMD("source /home/patrick/.scripts/env/bin/activate && python /home/patrick/.scripts/dshutdown.py") },
+	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD("source /home/patrick/.scripts/env/bin/activate && python /home/patrick/.scripts/exit_dwm.py") },
+	{ MODKEY|ShiftMask,             XK_d,      spawn,          SHCMD("manage_df.sh") },
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("workon_scripts.sh") },
+	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("source /home/patrick/.scripts/env/bin/activate && python /home/patrick/.scripts/mounting.py") },
 	{ MODKEY|ShiftMask,             XK_b,      spawn,           SHCMD("/home/patrick/Scripts/glyphs") },
 
 };
