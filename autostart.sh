@@ -1,7 +1,11 @@
 #!/bin/bash
 
 # set the background image
-feh --bg-center $HOME/.config/.background.png
+feh --no-fehbg --bg-center $HOME/.config/.background.png
 
-# execute the status bar
-python /home/patrick/Scripts/status_bar.py
+# start the status bar script
+python $HOME/.scripts/status_bar.py &
+
+# start the notification server
+/usr/bin/dunst & 
+notify-send "Welcome back $USER!"

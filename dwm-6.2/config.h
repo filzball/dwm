@@ -57,7 +57,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -93,16 +93,15 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_c,      quit,           {0} },
-	{ MODKEY|ShiftMask,             XK_l,      spawn,          SHCMD("source /home/patrick/.scripts/env/bin/activate && python /home/patrick/.scripts/library.py") },
-	{ MODKEY|ShiftMask,             XK_r,      spawn,          SHCMD("source /home/patrick/.scripts/env/bin/activate && python /home/patrick/.scripts/dreboot.py") },
-	{ MODKEY|ShiftMask,             XK_x,      spawn,          SHCMD("source /home/patrick/.scripts/env/bin/activate && python /home/patrick/.scripts/dshutdown.py") },
-	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD("source /home/patrick/.scripts/env/bin/activate && python /home/patrick/.scripts/exit_dwm.py") },
-	{ MODKEY|ShiftMask,             XK_d,      spawn,          SHCMD("manage_df.sh") },
-	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("workon_scripts.sh") },
-	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("source /home/patrick/.scripts/env/bin/activate && python /home/patrick/.scripts/mounting.py") },
-	{ MODKEY|ShiftMask,             XK_b,      spawn,           SHCMD("/home/patrick/Scripts/glyphs") },
-
+	{ MODKEY|ShiftMask,             XK_l,      spawn,          SHCMD("source /home/patrick/.scripts/env/bin/activate && python /home/patrick/.scripts/shortcuts/util/library.py") },
+	{ MODKEY|ShiftMask,             XK_r,      spawn,          SHCMD("source /home/patrick/.scripts/env/bin/activate && python /home/patrick/.scripts/shortcuts/dwm/dreboot.py") },
+	{ MODKEY|ShiftMask,             XK_x,      spawn,          SHCMD("source /home/patrick/.scripts/env/bin/activate && python /home/patrick/.scripts/shortcuts/dwm/dshutdown.py") },
+	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD("source /home/patrick/.scripts/env/bin/activate && python /home/patrick/.scripts/shortcuts/dwm/exit_dwm.py") },
+	{ MODKEY|ShiftMask,             XK_d,      spawn,          SHCMD("/home/patrick/.scripts/shortcuts/util/manage_df.sh") },
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("/home/patrick/.scripts/shortcuts/util/workon_scripts.sh") },
+	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("source /home/patrick/.scripts/env/bin/activate && python /home/patrick/.scripts/shortcuts/util/mounting.py") },
+	{ MODKEY|ShiftMask,             XK_u,      spawn,          SHCMD("python /home/patrick/.scripts/update.py") },
+	//{ MODKEY|ShiftMask,             XK_c,      quit,           {0} },
 };
 
 /* button definitions */
