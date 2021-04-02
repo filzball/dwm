@@ -5,13 +5,13 @@ static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Hack Nerd Font:size=14" };
-static const char dmenufont[]       = "Hack Nerd Font:size=14";
+static const char *fonts[]          = { "Hack:size=12", "JoyPixels:size=12" };
+static const char dmenufont[]       = "Hack:size=12";
 static const char col_gray1[]       = "#282828"; // background
 static const char col_gray2[]       = "#ebdbb2"; // normal border
 static const char col_gray3[]       = "#ebdbb2"; // foreground
 static const char col_gray4[]       = "#282828"; // selected foreground
-static const char col_cyan[]        = "#98971a"; // background, Border selected
+static const char col_cyan[]        = "#689d6a"; // background, Border selected
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -57,7 +57,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "alacritty", NULL };
+static const char *termcmd[]  = { "st", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -93,14 +93,13 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_l,      spawn,          SHCMD("source /home/patrick/.scripts/env/bin/activate && python /home/patrick/.scripts/shortcuts/util/library.py") },
-	{ MODKEY|ShiftMask,             XK_r,      spawn,          SHCMD("source /home/patrick/.scripts/env/bin/activate && python /home/patrick/.scripts/shortcuts/dwm/dreboot.py") },
-	{ MODKEY|ShiftMask,             XK_x,      spawn,          SHCMD("source /home/patrick/.scripts/env/bin/activate && python /home/patrick/.scripts/shortcuts/dwm/dshutdown.py") },
-	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD("source /home/patrick/.scripts/env/bin/activate && python /home/patrick/.scripts/shortcuts/dwm/exit_dwm.py") },
-	{ MODKEY|ShiftMask,             XK_d,      spawn,          SHCMD("/home/patrick/.scripts/shortcuts/util/manage_df.sh") },
-	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("/home/patrick/.scripts/shortcuts/util/workon_scripts.sh") },
-	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("source /home/patrick/.scripts/env/bin/activate && python /home/patrick/.scripts/shortcuts/util/mounting.py") },
-	{ MODKEY|ShiftMask,             XK_u,      spawn,          SHCMD("python /home/patrick/.scripts/update.py") },
+	{ MODKEY|ShiftMask,             XK_r,      spawn,          SHCMD("/usr/local/bin/rbt.sh") },
+	{ MODKEY|ShiftMask,             XK_x,      spawn,          SHCMD("/usr/local/bin/shtdwn.sh") },
+	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD("/usr/local/bin/kill_dwm.sh") },
+	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("$HOME/scripts/util/mounting.sh") },
+	{ MODKEY|ShiftMask,             XK_u,      spawn,          SHCMD("$HOME/scripts/util/umounting.sh") },
+	{ MODKEY|ShiftMask,             XK_d,      spawn,          SHCMD("$HOME/scripts/util/rust_doc.sh") },
+	{ MODKEY|ShiftMask,             XK_y,      spawn,          SHCMD("$HOME/scripts/util/dmenumpv.sh") },
 	//{ MODKEY|ShiftMask,             XK_c,      quit,           {0} },
 };
 
